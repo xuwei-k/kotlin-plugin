@@ -1,5 +1,4 @@
-//import ScriptedPlugin._
-import bintray.Keys._
+enablePlugins(ScriptedPlugin)
 
 name := "kotlin-plugin"
 
@@ -17,25 +16,9 @@ sbtPlugin := true
 
 // build info plugin
 
-buildInfoSettings
-
-sourceGenerators in Compile += buildInfo
-
-buildInfoPackage := "kotlin"
-
-// bintray
-bintrayPublishSettings
-
-repository in bintray := "sbt-plugins"
-
 publishMavenStyle := false
 
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
-
-bintrayOrganization in bintray := None
-
-// scripted
-scriptedSettings
 
 scriptedLaunchOpts ++= "-Xmx1024m" ::
   "-Dplugin.version=" + version.value ::
